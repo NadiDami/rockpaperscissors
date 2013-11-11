@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Rock, paper, scisssors</title>
+</head>
+<body>
+  <h1>Rock, paper, scissors</h1>
+  <ul>
+    <li data-pick='rock'>Rock</li>
+    <li data-pick='paper'>Paper</li>
+    <li data-pick='scissors'>Scissors</li>
+  </ul> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="lib/RockPaperScissors.js"></script>
+  <script>
+
+    var computer= new Player('computer');
+    var you = new Player('you');
+
+    var game = new Game(computer, you);
+
+  $('li').on('click', function() {
+     computer.picks('rock');
+     you.picks($(this).data('pick'));
+     alert("You picked " + you.pick);
+  });
+  </script>
+</body>
+</html>
