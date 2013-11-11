@@ -8,20 +8,24 @@
     <li data-pick='rock'>Rock</li>
     <li data-pick='paper'>Paper</li>
     <li data-pick='scissors'>Scissors</li>
+    <div id="result"></div>
   </ul> 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="lib/RockPaperScissors.js"></script>
   <script>
 
-    var computer= new Player('computer');
-    var you = new Player('you');
+    var computer= new Player('Computer');
+    var you = new Player('You');
 
     var game = new Game(computer, you);
+    var choices = ['rock', 'paper', 'scissors']
+
 
   $('li').on('click', function() {
-     computer.picks('rock');
+     computer.picks(choices[Math.floor(Math.random() * 3)]);
      you.picks($(this).data('pick'));
-     alert("You picked " + you.pick);
+     $('#result').html("Computer picked " + computer.pick + "."
+      + " " + game.result() + ".");
   });
   </script>
 </body>

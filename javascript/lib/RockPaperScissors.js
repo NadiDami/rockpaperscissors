@@ -21,7 +21,7 @@ function Game(player1, player2) {
     if (this.samePick()){
       return null;
     }
-    if (pairs[player1.pick] == player2.pick){
+    if (pairs[this.player1.pick] == this.player2.pick){
       return this.player1;
     }
     else {
@@ -30,6 +30,19 @@ function Game(player1, player2) {
   };
 
   Game.prototype.samePick = function() {
-    return player1.pick == player2.pick;
+    return this.player1.pick == this.player2.pick;
   }
+
+  Game.prototype.result = function() {
+    if (this.winner() == this.player1){
+      return this.player1.name + " wins"
+    }
+    else if (this.winner() == this.player2){
+      return this.player2.name + " win"
+    }
+    else {
+      return "It's a draw"
+    }
+  };
+
 

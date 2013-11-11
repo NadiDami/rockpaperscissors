@@ -2,8 +2,8 @@ describe("Rock-Paper-Scissors", function() {
 
   beforeEach(function() {
 
-    player1 = new Player();
-    player2 = new Player();
+    player1 = new Player("Bob");
+    player2 = new Player("Nadia");
     game = new Game(player1, player2);
 
   });
@@ -91,5 +91,17 @@ describe("Rock-Paper-Scissors", function() {
     });
 
   });
+
+  describe('printing results', function() {
+
+    it('should print out a winner', function() {
+
+      player1.picks('scissors');
+      player2.picks('rock');
+      expect(game.result()).toBe("Nadia wins");
+      });
+
+
+     });
 
 });
