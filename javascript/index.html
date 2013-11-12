@@ -1,15 +1,18 @@
 <html>
 <head>
   <title>Rock, paper, scisssors</title>
+  <link rel="stylesheet" type="text/css" href="public/stylesheets/application.css">
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <h1>Rock, paper, scissors</h1>
-  <ul>
-    <li data-pick='rock'>Rock</li>
-    <li data-pick='paper'>Paper</li>
-    <li data-pick='scissors'>Scissors</li>
+    <h1>Rock, paper, scissors</h1>
+    <img data-pick='rock' src="public/images/rock.jpg" >
+    <img data-pick='paper' src="public/images/paper.jpg" >
+    <img data-pick='scissors' src="public/images/scissors.jpg" >
+    <br>
+    <br>
     <div id="result"></div>
-  </ul> 
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="lib/RockPaperScissors.js"></script>
   <script>
@@ -21,10 +24,10 @@
     var choices = ['rock', 'paper', 'scissors']
 
 
-  $('li').on('click', function() {
+  $('img').on('click', function() {
      computer.picks(choices[Math.floor(Math.random() * 3)]);
      you.picks($(this).data('pick'));
-     $('#result').html("Computer picked " + computer.pick + "."
+     $('#result').text("Computer picked " + computer.pick + "."
       + " " + game.result() + ".");
   });
   </script>
